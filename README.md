@@ -1,4 +1,4 @@
-# Unit 14 | Assignment - JavaScript and DOM Manipulation
+# JavaScript and DOM Manipulation
 
 ## Background
 
@@ -10,7 +10,7 @@ That's why we are hiring you. We need you to write code that will create a table
 
 You can handle this... right? The planet Earth needs to know what we have found!
 
-## Your Task
+## Task
 
 ### Level 1: Automatic Table and Date Search
 
@@ -40,12 +40,5 @@ You can handle this... right? The planet Earth needs to know what we have found!
 
 * [UFO Sightings Data](./static/js/data.js)
 
-- - -
-
-**Good luck!**
-
-- - -
-
-### Copyright
-
-Data Boot Camp © 2018. All Rights Reserved.
+## Libraries: 
+* bootstrap.js; d3.js; BASIC HTML; CSS; jvascript
