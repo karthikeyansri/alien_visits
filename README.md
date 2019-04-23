@@ -2,9 +2,9 @@
 
 ## Background
 
-WAKE UP SHEEPLE! The extra-terrestrial menace has come to Earth and we here at `ALIENS-R-REAL` have collected all of the eye-witness reports we could to prove it! All we need to do now is put this information online for the world to see and then the matter will finally be put to rest.
+WAKE UP SHEEPLE! The extra-terrestrial menace has come to Earth and people at `ALIENS-R-REAL` (here by will be referenced ads `THEY`) have collected all of the eye-witness reports 'THEY' could to prove it! All 'THEY' need to do now is put this information online for the world to see and then the matter will finally be put to rest.
 
-There is just one tiny problem though... our collection is too large to search through manually. Even our most dedicated followers are complaining that they are having trouble locating specific reports in this mess.
+There is just one tiny problem though... 'THEIR' collection is too large to search through manually. Even 'THEIR' most dedicated followers are complaining that they are having trouble locating specific reports in this mess.
 
 That's why I was hired. 'THEY' wanted me to write code that will create a table dynamically based upon a [dataset they provide](./static/js/data.js). 'THEY' also wanted to allow website's users to filter the table data for specific values. There's a catch though... I am only to use pure JavaScript, HTML, and CSS, and D3.js on the web pages. They are the only coding languages which can be trusted.
 
