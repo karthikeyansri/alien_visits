@@ -119,6 +119,7 @@ function setCountriesSelectOption(countries) {
 
     countries.sort();
     countries = countries.map(toUpper);
+    countries[0] = selectStr;
 
     cntSelector.selectAll("option").data(countries).enter().append("option").text(function(d) {
         return d;
