@@ -155,8 +155,14 @@ clearSearchBtn.on("click", function() {
 });
 
 
-// SEARCh functionality based on user input
-searchBtn.on("click", function() {
+dtSelector.on("change", updateSearchResults);
+ctSelector.on("change", updateSearchResults);
+stSelector.on("change", updateSearchResults);
+cntSelector.on("change", updateSearchResults);
+spSelector.on("change", updateSearchResults);
+
+
+function updateSearchResults() {
 
     // store user input in local variables
     let table = document.getElementById("ufo-table");
@@ -167,8 +173,6 @@ searchBtn.on("click", function() {
     let searchCountry = cntSelector.property("value");
     let searchShape = spSelector.property("value");
 
-    console.log(table.rows.length);
-    
     // clear table rows before search
     clearAndBringTableToView();
     if (searchDate == selectStr && searchCity == selectStr &&
@@ -178,8 +182,6 @@ searchBtn.on("click", function() {
         return;
     }
 
-    console.log(table.rows.length);
-    
     // add all records that meet the user input criteria
     allData.forEach((ufoSightingRecord) => {
         if((searchDate != selectStr && searchDate == ufoSightingRecord.datetime) ||
@@ -190,7 +192,7 @@ searchBtn.on("click", function() {
             selectedTableData.push(ufoSightingRecord);
         }
     });
-    
+
     //retain only the records that meet the user criteria Use js array filters
     if (searchDate != selectStr) {
         selectedTableData = selectedTableData.filter((selectedUFOSightingRecord) =>
@@ -214,17 +216,24 @@ searchBtn.on("click", function() {
     }
 
 
-    // append the selected elements stored in array to table 
+    // append the selected elements stored in array to table
     selectedTableData.forEach(ufoSightingRecord => updateTableData(ufoSightingRecord));
-    
+
     // RESET the array for next search
     selectedTableData = [];
-    
+
     // bring the top of the table to view
     table.scrollIntoView();
+}
 
-    console.log(table.rows.length);
-});
+
+//// SEARCh functionality based on user input
+//searchBtn.on("click", function() {
+//
+//
+//
+//    console.log(table.rows.length);
+//});
 
 
 init();
