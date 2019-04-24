@@ -48,7 +48,7 @@ function init() {
 }
 
 
-//remove all values from HTML table before rendering filter data
+// remove all values from HTML table before rendering filter data
 function clearAndBringTableToView() {
     let table = document.getElementById("ufo-table");
 
@@ -59,8 +59,25 @@ function clearAndBringTableToView() {
 }
 
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
+toUpper = function(x){
+  return x.toUpperCase();
+};
+
+
 // add unique values to drop-down options - Dates
 function setDatesSelectOption(dates) {
+
+    dates.sort(function(a,b){
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(a) - new Date(b);
+    });
+
     dtSelector.selectAll("option").data(dates).enter().append("option").text(function(d) {
         return d;
     }).attr("value", function(d) {
@@ -71,6 +88,10 @@ function setDatesSelectOption(dates) {
 
 // add unique values to drop-down options - Cities
 function setCitiesSelectOption(cities) {
+
+    cities.sort();
+    cities = cities.map(capitalizeFirstLetter);
+
     ctSelector.selectAll("option").data(cities).enter().append("option").text(function(d) {
         return d;
     }).attr("value", function(d) {
@@ -81,6 +102,10 @@ function setCitiesSelectOption(cities) {
 
 // add unique values to drop-down options - States
 function setStatesSelectOption(states) {
+
+    states.sort();
+    states = states.map(capitalizeFirstLetter);
+
     stSelector.selectAll("option").data(states).enter().append("option").text(function(d) {
         return d;
     }).attr("value", function(d) {
@@ -91,6 +116,10 @@ function setStatesSelectOption(states) {
 
 // add unique values to drop-down options - Countries
 function setCountriesSelectOption(countries) {
+
+    countries.sort();
+    countries = countries.map(toUpper);
+
     cntSelector.selectAll("option").data(countries).enter().append("option").text(function(d) {
         return d;
     }).attr("value", function(d) {
@@ -101,6 +130,10 @@ function setCountriesSelectOption(countries) {
 
 // add unique values to drop-down options - UFO Shapes
 function setShapesSelectOption(shapes) {
+
+    shapes.sort();
+    shapes = shapes.map(capitalizeFirstLetter);
+
     spSelector.selectAll("option").data(shapes).enter().append("option").text(function(d) {
         return d;
     }).attr("value", function(d) {
@@ -109,7 +142,7 @@ function setShapesSelectOption(shapes) {
 }
 
 
-// Call the fuction to append each data to HTML table 
+// Call the function to append each data to HTML table
 // also set unique values to collections for filter drop-down options
 function updateTableData(ufoSightingRecord) {
     var row = tableBody.append("tr");
@@ -155,6 +188,9 @@ clearSearchBtn.on("click", function() {
 });
 
 
+// search for the respective rows as and when
+// the drop-down values of the search fields are
+// modified by the user.
 dtSelector.on("change", updateSearchResults);
 ctSelector.on("change", updateSearchResults);
 stSelector.on("change", updateSearchResults);
@@ -229,9 +265,7 @@ function updateSearchResults() {
 
 //// SEARCh functionality based on user input
 //searchBtn.on("click", function() {
-//
-//
-//
+//    updateSearchResults();
 //    console.log(table.rows.length);
 //});
 
