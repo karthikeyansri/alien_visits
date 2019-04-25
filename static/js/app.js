@@ -225,10 +225,10 @@ function updateSearchResults() {
     // add all records that meet the user input criteria
     allData.forEach((ufoSightingRecord) => {
         if((searchDate != selectStr && searchDate == ufoSightingRecord.datetime) ||
-            (searchCity != selectStr && searchCity == ufoSightingRecord.city) ||
-            (searchState != selectStr && searchState == ufoSightingRecord.state) ||
-            (searchCountry != selectStr && searchCountry == ufoSightingRecord.country) ||
-            (searchShape != selectStr && searchShape == ufoSightingRecord.shape)) {
+            (searchCity != selectStr.toLowerCase() && searchCity == ufoSightingRecord.city) ||
+            (searchState != selectStr.toLowerCase() && searchState == ufoSightingRecord.state) ||
+            (searchCountry != selectStr.toLowerCase() && searchCountry == ufoSightingRecord.country) ||
+            (searchShape != selectStr.toLowerCase() && searchShape == ufoSightingRecord.shape)) {
             selectedTableData.push(ufoSightingRecord);
         }
     });
