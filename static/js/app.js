@@ -210,8 +210,6 @@ function updateSearchResults() {
     let searchCountry = cntSelector.property("value").toLowerCase();
     let searchShape = spSelector.property("value").toLowerCase();
 
-//    console.log(searchDate);console.log(searchCity);console.log(searchState);
-//    console.log(searchCountry);console.log(searchShape);
 
     // clear table rows before search
     clearAndBringTableToView();
@@ -265,13 +263,6 @@ function updateSearchResults() {
     // bring the top of the table to view
     table.scrollIntoView();
 }
-
-
-//// SEARCh functionality based on user input
-//searchBtn.on("click", function() {
-//    updateSearchResults();
-//    console.log(table.rows.length);
-//});
 
 
 init();
