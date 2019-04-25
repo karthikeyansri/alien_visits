@@ -205,16 +205,19 @@ function updateSearchResults() {
     let table = document.getElementById("ufo-table");
     let allData = data;
     let searchDate = dtSelector.property("value");
-    let searchCity = ctSelector.property("value");
-    let searchState = stSelector.property("value");
-    let searchCountry = cntSelector.property("value");
-    let searchShape = spSelector.property("value");
+    let searchCity = ctSelector.property("value").toLowerCase();
+    let searchState = stSelector.property("value").toLowerCase();
+    let searchCountry = cntSelector.property("value").toLowerCase();
+    let searchShape = spSelector.property("value").toLowerCase();
+
+//    console.log(searchDate);console.log(searchCity);console.log(searchState);
+//    console.log(searchCountry);console.log(searchShape);
 
     // clear table rows before search
     clearAndBringTableToView();
-    if (searchDate == selectStr && searchCity == selectStr &&
-        searchState == selectStr && searchCountry == selectStr &&
-        searchShape == selectStr) {
+    if (searchDate == selectStr && searchCity == selectStr.toLowerCase() &&
+        searchState == selectStr.toLowerCase() && searchCountry == selectStr.toLowerCase() &&
+        searchShape == selectStr.toLowerCase()) {
         init();
         return;
     }
@@ -235,19 +238,19 @@ function updateSearchResults() {
         selectedTableData = selectedTableData.filter((selectedUFOSightingRecord) =>
             selectedUFOSightingRecord.datetime == searchDate);
     }
-    if (searchCity != selectStr) {
+    if (searchCity != selectStr.toLowerCase()) {
         selectedTableData = selectedTableData.filter((selectedUFOSightingRecord) =>
             selectedUFOSightingRecord.city == searchCity);
     }
-    if (searchState != selectStr) {
+    if (searchState != selectStr.toLowerCase()) {
         selectedTableData = selectedTableData.filter((selectedUFOSightingRecord) =>
             selectedUFOSightingRecord.state == searchState);
     }
-    if (searchCountry != selectStr) {
+    if (searchCountry != selectStr.toLowerCase()) {
         selectedTableData = selectedTableData.filter((selectedUFOSightingRecord) =>
             selectedUFOSightingRecord.country == searchCountry);
     }
-    if (searchShape != selectStr) {
+    if (searchShape != selectStr.toLowerCase()) {
         selectedTableData = selectedTableData.filter((selectedUFOSightingRecord) =>
             selectedUFOSightingRecord.shape == searchShape);
     }
